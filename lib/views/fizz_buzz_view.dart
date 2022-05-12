@@ -50,21 +50,24 @@ class FizzBuzzView extends StatelessWidget {
                   ),
 
                   //Result
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Result:",
-                        style: Get.textTheme.headline4,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        controller.response.value,
-                        style: Get.textTheme.headline4,
-                      ),
-                    ],
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Result:",
+                          style: Get.textTheme.headline4,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          controller.response.value,
+                          style: Get.textTheme.headline4,
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

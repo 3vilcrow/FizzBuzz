@@ -6,12 +6,18 @@ class FizzBuzzController extends GetxController {
   RxBool isValid = true.obs;
   final formKey = GlobalKey<FormState>();
 
-  void onChangedTextFormField(String value) {
-    isValid.value = formKey.currentState!.validate();
-    if (isValid.value) {
+  void onChangedTextFormField(String value, {bool testMode = false}) {
+    if (testMode) {
       response.value = _fizzBuzzAlgorithm(
         int.parse(value),
       );
+    } else {
+      isValid.value = formKey.currentState!.validate();
+      if (isValid.value) {
+        response.value = _fizzBuzzAlgorithm(
+          int.parse(value),
+        );
+      }
     }
   }
 
@@ -23,6 +29,6 @@ class FizzBuzzController extends GetxController {
     } else if (n % 3 == 0) {
       return 'Fizz';
     }
-    return 'Wrong Sequence';
+    return 'Wrong Sequence: $n';
   }
 }
