@@ -40,6 +40,7 @@ class InputNumberWidget extends StatelessWidget {
       borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
       child: Obx(
         () => TextFormField(
+          key: const Key("InputFieldKey"),
           focusNode: focusNode,
           onChanged: onChange,
           autocorrect: false,
